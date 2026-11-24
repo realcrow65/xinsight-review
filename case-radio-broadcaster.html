@@ -46,7 +46,8 @@ html{scroll-behavior:smooth}
 .v3-tick{position:relative}
 .v3-tick::after{top:0;right:0;border-top:1px solid #8A949C;border-right:1px solid #8A949C}
 .v3-giant{position:relative;overflow:hidden;background:#030507;border-top:1px solid #1F2A33;display:flex;align-items:center}
-.v3-giant>div{padding:0 clamp(16px,2.4vw,40px);line-height:0;white-space:nowrap;-webkit-mask-image:linear-gradient(to bottom,#000 35%,rgba(0,0,0,.55) 100%);mask-image:linear-gradient(to bottom,#000 35%,rgba(0,0,0,.55) 100%)}
+.v3-giant>.v3-wrap{width:100%}
+.v3-giant .wm{line-height:0;white-space:nowrap;-webkit-mask-image:linear-gradient(to bottom,#000 35%,rgba(0,0,0,.55) 100%);mask-image:linear-gradient(to bottom,#000 35%,rgba(0,0,0,.55) 100%)}
 .v3-blurwrap{position:relative;overflow:hidden;padding:clamp(28px,4vw,56px);border:1px solid #1F2A33;isolation:isolate}
 .v3-blurwrap::before{content:'';position:absolute;inset:-60px;background:var(--bimg) center/cover no-repeat;filter:blur(36px) brightness(.55) saturate(1.2);z-index:-1}
 .v3-stat{display:flex;flex-direction:column;gap:14px;padding-top:6px}
