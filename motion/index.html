@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xInsight motion studies: Crossing Spark and Dot Field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,700&family=Inter:wght@400;500&family=Inter+Tight:wght@500&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030507;--bg2:#0B0F13;--line:#1F2A33;--ink:#F4F3EE;--mu:#AEB6BC;--dim:#8A949C;--or:#F15025}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--or);color:#0B0F13}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(20px,4.4vw,56px)}
+header.top{padding:40px 0 24px;border-bottom:1px solid var(--line)}
+.cap{font-family:'Fragment Mono',monospace;font-size:12px;color:var(--dim)}
+h1{font:500 clamp(36px,4.6vw,64px)/1.04 'Inter Tight',sans-serif;letter-spacing:-.025em;margin:12px 0 12px}
+h2{font:500 clamp(30px,3.4vw,48px)/1.06 'Inter Tight',sans-serif;letter-spacing:-.02em;margin:10px 0 12px}
+h3{font:500 20px/1.3 'Inter Tight',sans-serif;margin:0 0 8px}
+p{margin:0}
+.lead{color:var(--mu);font-size:16px;line-height:1.6;max-width:720px}
+.s{color:var(--mu);font-size:14px;line-height:1.6}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 16px;border:1px solid rgba(244,243,238,.5);background:transparent;color:var(--ink);font:400 14px Inter,sans-serif;cursor:pointer}
+.btn.solid{background:var(--or);border-color:var(--or);color:#fff}
+.btn:active{transform:scale(.97)}
+/* ---------- 1. Crossing Spark ---------- */
+.stage{position:relative;margin-top:36px;background:var(--bg2);border:1px solid var(--line);height:clamp(320px,38vw,460px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.logo{display:flex;align-items:flex-end;gap:0;line-height:1}
+.xm{position:relative;width:calc(var(--fs) * .894);height:calc(var(--fs) * .6875);margin-right:calc(var(--fs) * .25);transform:scaleY(1.3);transform-origin:left bottom}
+.xm svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.xm .spark{position:absolute;left:50%;top:50%;width:calc(var(--fs) * .62);height:calc(var(--fs) * .62);transform:translate(-50%,-50%) scale(0);pointer-events:none;filter:drop-shadow(0 0 calc(var(--fs) * .12) rgba(241,80,37,.9))}
+.word{font-family:'Archivo',sans-serif;font-stretch:75%;font-weight:700;font-size:var(--fs);letter-spacing:.22em;margin-right:-.22em;transform:scaleY(1.3);transform-origin:left bottom;display:flex}
+.word span{display:inline-block;opacity:0}
+.rays{position:absolute;left:50%;top:50%;width:0;height:0}
+.rays i{position:absolute;left:0;top:0;width:2px;height:calc(var(--fs)*.22);background:var(--or);transform-origin:50% 0;opacity:0;border-radius:2px}
+.stagebar{position:absolute;left:16px;bottom:14px;right:16px;display:flex;justify-content:space-between;align-items:center}
+.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.use{background:var(--bg2);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:18px;min-height:250px}
+.use .demo{flex:1;display:flex;align-items:center;justify-content:center}
+ul.sparks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+ul.sparks li{display:flex;gap:12px;align-items:baseline;font-size:15px}
+ul.sparks svg{flex:none;width:11px;height:11px;transform:translateY(1px)}
+.btnwrap{position:relative;display:inline-block}
+canvas.burst{position:absolute;left:50%;top:50%;width:220px;height:160px;transform:translate(-50%,-50%);pointer-events:none}
+/* ---------- 2. Dot Field ---------- */
+.hero{position:relative;margin-top:36px;height:clamp(440px,48vw,620px);background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .copy{position:absolute;left:clamp(20px,4vw,56px);top:50%;transform:translateY(-50%);max-width:520px;pointer-events:none}
+.hero .copy h2{font-size:clamp(34px,4.4vw,64px);margin:0 0 16px}
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.modes .btn[aria-pressed="true"]{background:var(--ink);color:#0B0F13;border-color:var(--ink)}
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px}
+.notes div{border-top:1px solid var(--line);padding-top:14px}
+footer{padding:40px 0 64px}
+@media (max-width:860px){.uses,.notes{grid-template-columns:1fr}.hero .copy{top:auto;bottom:28px;transform:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<p class="cap">xInsight · motion study · draft for review</p>
+<h1>The Dot Field, With the AI Sparkle</h1>
+<p class="lead">The dot pattern from the current site becomes the homepage hero. The dots form the AI sparkle Sunny wants, the Crossing X, or move between the two. Built in code, so it stays sharp at any size and costs nothing to run.</p>
+</div></header>
+
+
+
+<section><div class="wrap">
+<p class="cap">Dot field · round 2</p>
+<h2>Dots That Form the Sparkle and the X</h2>
+<p class="lead">Pick a mode to compare. In every mode the dots near your cursor respond, and the rest of the field stays quiet so the headline still leads.</p>
+<div class="modes" role="group" aria-label="Dot field mode">
+  <button class="btn" data-mode="morph" aria-pressed="true">Sparkle to X and back</button>
+  <button class="btn" data-mode="sgather" aria-pressed="false">Sparkle, lights up on hover</button>
+  <button class="btn" data-mode="ghost" aria-pressed="false">Sparkle, revealed by motion</button>
+  <button class="btn" data-mode="gather" aria-pressed="false">X, lights up on hover</button>
+</div>
+<div class="hero" id="hero">
+  <canvas id="dots"></canvas>
+  <div class="copy"><h2>Realising Your Business Vision Across Markets Worldwide.</h2><p class="lead">Your global strategy and execution partner.</p></div>
+</div>
+<div class="notes">
+  <div><h3>Sparkle to X and back</h3><p class="s">The dots gather into the AI sparkle, hold, then travel into the Crossing X and back. The two elements of the brand in one moving piece.</p></div>
+  <div><h3>Sparkle only</h3><p class="s">Two quieter options if the morph is too much: the sparkle lights up under the cursor, or it shows only through movement (the Ghost Font idea from your saves).</p></div>
+  <div><h3>Fallbacks</h3><p class="s">With reduced motion turned on, both show a still dot pattern with the X faintly lit. One moment per page: this would be the homepage hero only.</p></div>
+</div>
+</div></section>
+
+<footer><div class="wrap"><p class="cap">Draft motion study for xInsight. Not for publication.</p></div></footer>
+
+<script>
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SPARK = 'M50 0 C53 38 62 47 100 50 C62 53 53 62 50 100 C47 62 38 53 0 50 C38 47 47 38 50 0Z';
+let uid = 0;
+function mark(withWord){
+  const id = 'x' + (uid++);
+  const word = withWord ? '<div class="word">' + 'INSIGHT'.split('').map(c => '<span>' + c + '</span>').join('') + '</div>' : '';
+  return `<div class="logo"><div class="xm">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <defs><clipPath id="${id}c"><rect width="100" height="100"/></clipPath>
+      <mask id="${id}m" maskUnits="userSpaceOnUse" x="-50" y="-50" width="200" height="200"><rect x="-50" y="-50" width="200" height="200" fill="#fff"/><path d="M 1.0 112 L 99.0 -12" stroke="#000" stroke-width="38" fill="none"/></mask></defs>
+      <g clip-path="url(#${id}c)" fill="none" stroke="#F15025" stroke-width="18">
+        <path class="sc" pathLength="1" d="M -13.1 5.4 L 1.5 9.0 C 55.4 20.4, 44.6 79.6, 98.5 91.0 L 113.1 94.6" mask="url(#${id}m)"/>
+        <path class="st" pathLength="1" d="M 1.0 112 L 99.0 -12"/>
+      </g>
+    </svg>
+    <div class="rays">${Array.from({length:8},(_,i)=>`<i style="--a:${i*45}deg"></i>`).join('')}</div>
+    <svg class="spark" viewBox="0 0 100 100" aria-hidden="true"><path d="${SPARK}" fill="#F15025"/><path d="${SPARK}" fill="#FFD9C9" transform="translate(30 30) scale(.4)"/></svg>
+  </div>${word}</div>`;
+}
+function play(root, {loop=false, word=true}={}){
+  const st = root.querySelector('.st'), sc = root.querySelector('.sc'), sp = root.querySelector('.spark');
+  const letters = [...root.querySelectorAll('.word span')], rays = [...root.querySelectorAll('.rays i')];
+  const ease = 'cubic-bezier(.22,1,.36,1)';
+  const anims = [];
+  if (REDUCED){ [st,sc].forEach(p=>{p.style.strokeDasharray='1';p.style.strokeDashoffset='0'}); letters.forEach(l=>l.style.opacity=1); return; }
+  [st,sc].forEach(p=>{p.style.strokeDasharray='1'});
+  anims.push(st.animate([{strokeDashoffset:1},{strokeDashoffset:0}],{duration:650,easing:ease,fill:'both'}));
+  anims.push(sc.animate([{strokeDashoffset:1},{strokeDashoffset:0}],{duration:800,delay:380,easing:ease,fill:'both'}));
+  anims.push(sp.animate([
+    {transform:'translate(-50%,-50%) scale(0) rotate(-45deg)',opacity:0,offset:0},
+    {transform:'translate(-50%,-50%) scale(1.15) rotate(0deg)',opacity:1,offset:.35},
+    {transform:'translate(-50%,-50%) scale(.9) rotate(8deg)',opacity:1,offset:.6},
+    {transform:'translate(-50%,-50%) scale(0) rotate(30deg)',opacity:0,offset:1}],{duration:1100,delay:900,easing:'ease-out',fill:'both'}));
+  rays.forEach(r=>{const a=getComputedStyle(r).getPropertyValue('--a');
+    anims.push(r.animate([{transform:`rotate(${a}) translateY(4px) scaleY(.2)`,opacity:0},{transform:`rotate(${a}) translateY(18px) scaleY(1)`,opacity:.9,offset:.4},{transform:`rotate(${a}) translateY(34px) scaleY(.1)`,opacity:0}],{duration:700,delay:1000,easing:'ease-out',fill:'both'}));});
+  letters.forEach((l,i)=>anims.push(l.animate([{opacity:0,transform:'translateY(.12em)'},{opacity:1,transform:'none'}],{duration:500,delay:1150+i*55,easing:ease,fill:'both'})));
+  if (loop){ const total = 2600; setTimeout(()=>{ anims.forEach(a=>a.cancel()); play(root,{loop,word}); }, total); }
+}
+// ---------- Dot field ----------
+const cv = document.getElementById('dots'), cx = cv.getContext('2d'), hero = document.getElementById('hero');
+let W, H, DPR, maskX, maskS, mask, dots = [], bg = [], mode = 'morph', mouse = {x:-1e4,y:-1e4}, t0 = performance.now();
+const stPath = new Path2D('M 1.0 112 L 99.0 -12'), scPath = new Path2D('M -13.1 5.4 L 1.5 9.0 C 55.4 20.4, 44.6 79.6, 98.5 91.0 L 113.1 94.6');
+function box(){ const S = Math.min(W*.4, H*.78); return {x: W - S - W*.08, y: (H - S)/2, S}; }
+function star(g, x, y, r){ const a=.16, b=.34; g.moveTo(x, y-r);
+  g.bezierCurveTo(x+r*a, y-r*b, x+r*b, y-r*a, x+r, y); g.bezierCurveTo(x+r*b, y+r*a, x+r*a, y+r*b, x, y+r);
+  g.bezierCurveTo(x-r*a, y+r*b, x-r*b, y+r*a, x-r, y); g.bezierCurveTo(x-r*b, y-r*a, x-r*a, y-r*b, x, y-r); g.closePath(); }
+function drawSparkle(g){ const {x,y,S} = box(); g.fillStyle='#fff'; g.lineJoin='round'; g.strokeStyle='#fff'; g.lineWidth=S*.02;
+  g.beginPath(); star(g, x+S*.62, y+S*.62, S*.37); star(g, x+S*.24, y+S*.34, S*.18); star(g, x+S*.5, y+S*.1, S*.1); g.fill(); g.stroke(); }
+function drawX(g){ const {x,y,S} = box(); const xw = S*.86, xh = xw*.6875/.894*1.3, ox = x + (S-xw)/2, oy = y + (S-xh)/2;
+  g.save(); g.translate(ox,oy); g.beginPath(); g.rect(0,0,xw,xh); g.clip(); g.scale(xw/100, xh/100); g.lineWidth = 18; g.strokeStyle = '#fff'; g.stroke(stPath); g.stroke(scPath); g.restore(); }
+function makeMask(draw){ const m = document.createElement('canvas'); m.width = W; m.height = H; const g = m.getContext('2d'); draw(g);
+  const d = g.getImageData(0,0,W,H).data; const test = (x,y)=>{ x|=0; y|=0; if(x<0||y<0||x>=W||y>=H) return false; return d[(y*W+x)*4+3]>128; };
+  const pts = (sp)=>{ const o=[]; for (let y=sp/2;y<H;y+=sp) for (let x=sp/2;x<W;x+=sp) if (test(x,y)) o.push([x,y]); return o; }; return {test, pts}; }
+function byAngle(arr){ let cx0=0, cy0=0; arr.forEach(p=>{cx0+=p[0];cy0+=p[1]}); cx0/=arr.length; cy0/=arr.length;
+  return arr.map(p=>[p[0],p[1],Math.atan2(p[1]-cy0,p[0]-cx0)]).sort((a,b)=>a[2]-b[2]); }
+function setup(){
+  const r = hero.getBoundingClientRect(); DPR = Math.min(devicePixelRatio||1, 2);
+  W = Math.round(r.width); H = Math.round(r.height); cv.width = W*DPR; cv.height = H*DPR; cx.setTransform(DPR,0,0,DPR,0,0);
+  maskX = makeMask(drawX); maskS = makeMask(drawSparkle); dots = []; bg = []; t0 = performance.now();
+  if (mode === 'morph'){
+    for (let y=9;y<H;y+=18) for (let x=9;x<W;x+=18) bg.push([x,y]);
+    const A = byAngle(maskS.pts(8)), B = byAngle(maskX.pts(8)), N = Math.max(A.length, B.length);
+    for (let i=0;i<N;i++){ const a = A[Math.floor(i*A.length/N)], b = B[Math.floor(i*B.length/N)];
+      dots.push({ax:a[0]+(Math.random()-.5)*3, ay:a[1]+(Math.random()-.5)*3, bx:b[0]+(Math.random()-.5)*3, by:b[1]+(Math.random()-.5)*3, d:Math.random()*.35, ph:Math.random()*6.28}); }
+  } else if (mode === 'ghost'){ mask = maskS.test; const n = Math.round(W*H/140); for (let k=0;k<2;k++) for (let i=0;i<n;i++) dots.push({x:Math.random()*W,y:Math.random()*H,layer:k}); }
+  else { mask = mode === 'sgather' ? maskS.test : maskX.test; const g = 12; for (let y=g/2;y<H;y+=g) for (let x=g/2;x<W;x+=g) dots.push({hx:x,hy:y,in:mask(x,y),h:0}); }
+}
+const ease = t => t<.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+function frame(){
+  cx.clearRect(0,0,W,H);
+  const t = REDUCED ? 0 : (performance.now() - t0)/1000;
+  if (mode === 'morph'){
+    cx.fillStyle = 'rgba(138,148,156,.16)'; for (const p of bg) cx.fillRect(p[0], p[1], 1.2, 1.2);
+    const C = 10, c = t % C; // hold sparkle 0-3.4, to X 3.4-5, hold X 5-8.4, back 8.4-10
+    for (const p of dots){
+      let k; if (c < 3.4) k = 0; else if (c < 5.2) k = ease(Math.min(1, Math.max(0, (c-3.4-p.d)/1.4))); else if (c < 8.4) k = 1; else k = 1 - ease(Math.min(1, Math.max(0, (c-8.4-p.d)/1.4)));
+      let x = p.ax + (p.bx-p.ax)*k, y = p.ay + (p.by-p.ay)*k;
+      const travel = Math.sin(Math.PI*k); x += Math.sin(p.ph + t*1.3)*(1.2 + travel*10); y += Math.cos(p.ph*1.7 + t*1.1)*(1.2 + travel*10);
+      const dx = x-mouse.x, dy = y-mouse.y, dm = Math.hypot(dx,dy); if (dm < 120){ const f = (1-dm/120)*16; x += dx/dm*f; y += dy/dm*f; }
+      cx.fillStyle = `rgba(241,80,37,${.62 + .38*(1-travel)})`; cx.beginPath(); cx.arc(x, y, 1.35, 0, 7); cx.fill();
+    }
+  } else if (mode === 'ghost'){
+    for (const p of dots){
+      const vx = p.layer ? 26 : -18, vy = p.layer ? -32 : 10;
+      let x = (p.x + vx*t) % W, y = (p.y + vy*t) % H; if (x<0) x+=W; if (y<0) y+=H;
+      const inside = mask(x,y); if (inside !== !!p.layer) continue;
+      const dm = Math.hypot(x-mouse.x, y-mouse.y), near = Math.max(0, 1 - dm/170);
+      cx.fillStyle = inside ? `rgba(241,80,37,${(REDUCED?.6:.5) + near*.45})` : `rgba(138,148,156,${.3 + near*.35})`;
+      cx.fillRect(x, y, 1.6, 1.6);
+    }
+  } else {
+    for (const p of dots){
+      const dm = Math.hypot(p.hx-mouse.x, p.hy-mouse.y), near = Math.max(0, 1 - dm/220);
+      const auto = REDUCED ? .5 : (Math.sin(t*1.2 - p.hx*.004)*.5+.5)*.4;
+      const target = p.in ? Math.max(near, auto) : 0; p.h += (target - p.h)*.12;
+      const lift = p.in ? p.h*4 : 0, r = p.in ? 1.1 + p.h*1.3 : 1.1;
+      cx.fillStyle = p.in ? `rgba(${Math.round(70+171*p.h)},80,${Math.round(90-53*p.h)},${.45+p.h*.55})` : `rgba(138,148,156,${.22 + near*.18})`;
+      cx.beginPath(); cx.arc(p.hx, p.hy - lift, r, 0, 7); cx.fill();
+    }
+  }
+  if (!REDUCED || frameCount++ < 1) requestAnimationFrame(frame);
+}
+let frameCount = 0;
+hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -1e4; });
+document.querySelectorAll('.modes .btn').forEach(b => b.onclick = () => { document.querySelectorAll('.modes .btn').forEach(x=>x.setAttribute('aria-pressed', x===b)); mode = b.dataset.mode; frameCount = 0; setup(); });
+addEventListener('resize', () => setup());
+setup(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>
